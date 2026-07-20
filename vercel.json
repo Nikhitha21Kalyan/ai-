@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/", "destination": "/html/index.html" },
+    { "source": "/index.html", "destination": "/html/index.html" },
+    { "source": "/about", "destination": "/html/about.html" },
+    { "source": "/about.html", "destination": "/html/about.html" },
+    { "source": "/contact", "destination": "/html/contact.html" },
+    { "source": "/contact.html", "destination": "/html/contact.html" },
+    { "source": "/dashboard", "destination": "/html/dashboard.html" },
+    { "source": "/dashboard.html", "destination": "/html/dashboard.html" },
+    { "source": "/login", "destination": "/html/login.html" },
+    { "source": "/login.html", "destination": "/html/login.html" },
+    { "source": "/profile", "destination": "/html/profile.html" },
+    { "source": "/profile.html", "destination": "/html/profile.html" },
+    { "source": "/reports", "destination": "/html/reports.html" },
+    { "source": "/reports.html", "destination": "/html/reports.html" },
+    { "source": "/results", "destination": "/html/results.html" },
+    { "source": "/results.html", "destination": "/html/results.html" },
+    { "source": "/upload", "destination": "/html/upload.html" },
+    { "source": "/upload.html", "destination": "/html/upload.html" }
+  ]
+}
