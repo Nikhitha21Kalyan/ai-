@@ -153,3 +153,71 @@ background:#0b4f9c;
 color:white;
 margin-top:50px;
 }
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 5%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 5%;
+        text-align: center;
+    }
+
+    .hero-text,
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 420px;
+        margin-top: 20px;
+    }
+
+    .features,
+    .workflow {
+        padding: 40px 5%;
+    }
+
+    .steps div {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-text button {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

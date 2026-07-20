@@ -159,3 +159,57 @@ font-weight:bold;
 color:red;
 font-weight:bold;
 }
+
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding: 20px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .topbar button {
+        width: 100%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .graph {
+        flex-direction: column;
+        height: auto;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .bar {
+        width: 90%;
+        height: 80px !important;
+        border-radius: 10px;
+    }
+
+    table,
+    th,
+    td {
+        font-size: 14px;
+    }
+}

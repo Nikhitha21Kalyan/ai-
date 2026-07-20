@@ -72,3 +72,19 @@ margin-top:10px;
 .submit-btn:hover{
 background:#0056b3;
 }
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .button-box button {
+        font-size: 14px;
+    }
+}
