@@ -106,6 +106,16 @@ signupForm.onsubmit = function(e){
             window.location.href = "profile.html";
         })
         .catch((error) => {
-            alert(error.message || "Account creation failed");
+            if (error.code === "auth/email-already-in-use") {
+                alert("This email is already registered. Please log in instead.");
+                signupBtn.classList.remove("active");
+                loginBtn.classList.add("active");
+                signupForm.classList.remove("active");
+                loginForm.classList.add("active");
+                loginUsername.value = emailValue;
+                loginPassword.focus();
+            } else {
+                alert(error.message || "Account creation failed");
+            }
         });
 };
