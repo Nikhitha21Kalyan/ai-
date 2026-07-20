@@ -1,17 +1,4 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyBOQjqA6jSEhgEh0gxBhO1QD3oQVx5y1zs",
-    authDomain: "ai-helath.firebaseapp.com",
-    projectId: "ai-helath",
-    storageBucket: "ai-helath.firebasestorage.app",
-    messagingSenderId: "522555254932",
-    appId: "1:522555254932:web:9185b3c2e34a0d23feec81",
-    measurementId: "G-HE9WH0YMZM"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
-
+// Login and Signup Handler
 const loginBtn = document.getElementById("loginBtn");
 const signupBtn = document.getElementById("signupBtn");
 
@@ -25,12 +12,13 @@ const email = document.getElementById("email");
 const signupUsername = document.getElementById("signupUsername");
 const signupPassword = document.getElementById("signupPassword");
 
+// Set active form on page load
 loginForm.classList.add("active");
 
+// Tab switching
 loginBtn.onclick = () => {
     loginForm.classList.add("active");
     signupForm.classList.remove("active");
-
     loginBtn.classList.add("active");
     signupBtn.classList.remove("active");
 };
@@ -38,12 +26,12 @@ loginBtn.onclick = () => {
 signupBtn.onclick = () => {
     signupForm.classList.add("active");
     loginForm.classList.remove("active");
-
     signupBtn.classList.add("active");
     loginBtn.classList.remove("active");
 };
 
-loginForm.onsubmit = function(e){
+// Login Form Handler
+loginForm.onsubmit = async function(e) {
     e.preventDefault();
 
     const emailValue = loginUsername.value.trim();
@@ -54,22 +42,18 @@ loginForm.onsubmit = function(e){
         return;
     }
 
-    auth.signInWithEmailAndPassword(emailValue, passwordValue)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            localStorage.setItem("userProfile", JSON.stringify({
-                uid: user.uid,
-                email: user.email
-            }));
-            alert("Login Successful");
-            window.location.href = "dashboard.html";
-        })
-        .catch((error) => {
-            alert(error.message || "Login failed");
-        });
+    try {
+        const response = await APIClient.login(emailValue, passwordValue);
+        alert("Login Successful");
+        window.location.href = "dashboard.html";
+    } catch (error) {
+        console.error("Login error:", error);
+        alert(error.message || "Login failed. Please try again.");
+    }
 };
 
-signupForm.onsubmit = function(e){
+// Signup Form Handler
+signupForm.onsubmit = async function(e) {
     e.preventDefault();
 
     const fullNameValue = fullName.value.trim();
@@ -82,40 +66,36 @@ signupForm.onsubmit = function(e){
         return;
     }
 
-    auth.createUserWithEmailAndPassword(emailValue, passwordValue)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            return db.collection("users").doc(user.uid).set({
-                fullName: fullNameValue,
-                email: emailValue,
-                username: usernameValue
-            });
-        })
-        .then(() => {
-            localStorage.setItem("userProfile", JSON.stringify({
-                fullName: fullNameValue,
-                email: emailValue,
-                username: usernameValue
-            }));
+    if (passwordValue.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
 
-            alert("Account Created Successfully");
-            signupBtn.classList.remove("active");
-            loginBtn.classList.add("active");
-            signupForm.classList.remove("active");
-            loginForm.classList.add("active");
-            window.location.href = "profile.html";
-        })
-        .catch((error) => {
-            if (error.code === "auth/email-already-in-use") {
-                alert("This email is already registered. Please log in instead.");
-                signupBtn.classList.remove("active");
-                loginBtn.classList.add("active");
-                signupForm.classList.remove("active");
-                loginForm.classList.add("active");
-                loginUsername.value = emailValue;
-                loginPassword.focus();
-            } else {
-                alert(error.message || "Account creation failed");
-            }
-        });
+    try {
+        // Extract first and last name from fullName
+        const nameParts = fullNameValue.split(' ');
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(' ') || nameParts[0];
+
+        const response = await APIClient.register(
+            emailValue,
+            passwordValue,
+            firstName,
+            lastName
+        );
+
+        alert("Account created successfully! Please login.");
+        
+        // Switch to login form
+        loginForm.classList.add("active");
+        signupForm.classList.remove("active");
+        loginBtn.classList.add("active");
+        signupBtn.classList.remove("active");
+
+        // Clear form
+        signupForm.reset();
+    } catch (error) {
+        console.error("Signup error:", error);
+        alert(error.message || "Signup failed. Please try again.");
+    }
 };
