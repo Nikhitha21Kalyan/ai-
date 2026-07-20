@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detection Results</title>
+
+<link rel="stylesheet" href="../css/results.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1><i class="fas fa-robot"></i> AI Fraud Detection Results</h1>
+
+<div class="summary">
+
+<div class="card">
+<h3>Total Claims</h3>
+<h2 id="total">0</h2>
+</div>
+
+<div class="card">
+<h3>Fraud Claims</h3>
+<h2 id="fraud">0</h2>
+</div>
+
+<div class="card">
+<h3>Safe Claims</h3>
+<h2 id="safe">0</h2>
+</div>
+
+<div class="card">
+<h3>Accuracy</h3>
+<h2>Pending</h2>
+</div>
+
+</div>
+
+<p class="empty-state">No detection results yet. Upload a claims dataset to start analysis.</p>
+
+<h2>Prediction Results</h2>
+
+<table>
+
+<tr>
+<th>Claim ID</th>
+<th>Patient</th>
+<th>Prediction</th>
+<th>Risk Score</th>
+</tr>
+
+<tr>
+<td colspan="4" class="empty-state">No claims have been analyzed yet.</td>
+</tr>
+
+</table>
+
+<div class="buttons">
+
+<button class="back-btn" type="button" onclick="history.back()">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+
+<button id="downloadBtn">
+<i class="fas fa-download"></i> Download Report
+</button>
+
+<button id="dashboardBtn">
+<i class="fas fa-home"></i> Dashboard
+</button>
+
+</div>
+
+</div>
+
+<script src="../js/results.js"></script>
+
+</body>
+</html>

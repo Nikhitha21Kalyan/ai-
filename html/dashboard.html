@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | AI Healthcare Fraud Detector</title>
+
+<link rel="stylesheet" href="../css/dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>AI Fraud</h2>
+
+    <ul>
+
+        <li class="active"><i class="fas fa-chart-line"></i> Dashboard</li>
+
+        <li><a href="upload.html"><i class="fas fa-upload"></i> Upload Claims</a></li>
+
+        <li><a href="results.html"><i class="fas fa-search"></i> Detect Fraud</a></li>
+
+        <li><a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a></li>
+
+        <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+
+        <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h1>Dashboard</h1>
+
+<div>
+<button class="back-btn" type="button" onclick="history.back()">Back</button>
+<button id="refreshBtn">Refresh</button>
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Claims</h3>
+<h2 id="claims">0</h2>
+</div>
+
+<div class="card">
+<h3>Fraud Claims</h3>
+<h2 id="fraud">0</h2>
+</div>
+
+<div class="card">
+<h3>Safe Claims</h3>
+<h2 id="safe">0</h2>
+</div>
+
+<div class="card">
+<h3>Accuracy</h3>
+<h2 id="accuracy">Pending</h2>
+</div>
+
+</div>
+
+<p id="dashboardMessage" class="empty-state">Upload claims to begin generating real fraud analysis results.</p>
+
+<div class="chart">
+
+<h2>Fraud Detection Analytics</h2>
+
+<div class="graph">
+<div class="empty-state">No analytics available until a dataset is uploaded.</div>
+</div>
+
+</div>
+
+<div class="table-box">
+
+<h2>Recent Claims</h2>
+
+<table>
+
+<tr>
+<th>Claim ID</th>
+<th>Patient</th>
+<th>Status</th>
+<th>Risk</th>
+</tr>
+
+<tr>
+<td colspan="4" class="empty-state">No claims available yet.</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

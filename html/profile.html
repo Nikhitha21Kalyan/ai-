@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+<div class="profile-card">
+    <h1>User Profile</h1>
+    <p class="subtitle">Your account details</p>
+
+    <div class="info">
+        <p><strong>Full Name:</strong> <span id="fullName"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Username:</strong> <span id="username"></span></p>
+    </div>
+
+    <div class="actions">
+        <button onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+        <button class="secondary" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports & Analytics</title>
+
+<link rel="stylesheet" href="../css/reports.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1><i class="fas fa-chart-line"></i> Reports & Analytics</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Claims</h3>
+<p id="totalClaims">--</p>
+</div>
+
+<div class="card">
+<h3>Fraud Claims</h3>
+<p id="fraudClaims">--</p>
+</div>
+
+<div class="card">
+<h3>Safe Claims</h3>
+<p id="safeClaims">--</p>
+</div>
+
+<div class="card">
+<h3>Detection Accuracy</h3>
+<p id="accuracy">--</p>
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<h2>Fraud Analytics</h2>
+
+<div id="chartArea">
+<p>Analytics chart will appear here after processing the uploaded dataset.</p>
+</div>
+
+</div>
+
+<div class="report-box">
+
+<h2>Generated Report</h2>
+
+<textarea id="report" readonly
+placeholder="Fraud detection report will be displayed here..."></textarea>
+
+</div>
+
+<div class="buttons">
+
+<button id="downloadBtn">
+<i class="fas fa-download"></i> Download Report
+</button>
+
+<button id="dashboardBtn">
+<i class="fas fa-home"></i> Dashboard
+</button>
+
+</div>
+
+</div>
+
+<script src="../js/reports.js"></script>
+
+</body>
+</html>

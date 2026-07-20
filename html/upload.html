@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Claims</title>
+    <link rel="stylesheet" href="../css/upload.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="upload-box">
+
+        <i class="fas fa-file-medical upload-icon"></i>
+
+        <h1>Upload Healthcare Claims</h1>
+
+        <p>Select a healthcare insurance claims CSV file for AI fraud detection.</p>
+
+        <input type="file" id="fileInput" accept=".csv" hidden>
+
+        <button id="chooseBtn">
+            <i class="fas fa-folder-open"></i> Choose CSV File
+        </button>
+
+        <p id="fileName">No file selected</p>
+
+        <button class="back-btn" type="button" onclick="history.back()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+
+        <button id="detectBtn">
+            <i class="fas fa-robot"></i> Detect Fraud
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../js/upload.js"></script>
+
+</body>
+</html>
